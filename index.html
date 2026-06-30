@@ -104,12 +104,12 @@
 
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-tag">Biomedical Engineering · ML · Data Science</div>
+        <div class="hero-tag">Biomedical Engineering · Data Analytics · ML</div>
         <h1>Luciano<br>Bonadona Siles</h1>
-        <p class="hero-description">Senior Biomedical Engineering student at the University of Arkansas with a Minor in Computer Science, focused on applying data science, machine learning, and software to real-world problems.</p>
+        <p class="hero-description">Biomedical Engineering graduate (University of Arkansas, May 2026) with a Minor in Computer Science, focused on healthcare data analytics, machine learning, and building data pipelines that drive real-world decisions.</p>
         <div class="hero-buttons">
             <a href="#projects" class="btn btn-gold">View Projects</a>
-            <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
+            <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn &#8599;</a>
         </div>
     </div>
     <div class="hero-rings">
@@ -124,8 +124,8 @@
         <div class="about-text reveal">
             <p class="sec-label">About Me</p>
             <h2 class="sec-title">Engineering Meets<br>Data Science</h2>
-            <p>I'm a senior Biomedical Engineering student at the University of Arkansas with a Minor in Computer Science, focused on applying data science, machine learning, and software to real-world problems.</p>
-            <p>My projects sit at the intersection of engineering, health technology, and analytics, where I build practical solutions that turn data into insight and impact. I'm especially interested in AI-driven tools, technical problem solving, and developing systems that improve decision-making in healthcare and industry.</p>
+            <p>I'm a Biomedical Engineering graduate from the University of Arkansas with a Minor in Computer Science, focused on healthcare data analytics, machine learning, and building end-to-end data pipelines that turn raw data into actionable insight.</p>
+            <p>My projects sit at the intersection of clinical data, engineering, and analytics. I've built SQL databases from real patient datasets, trained ML models on physiological signals, and developed Power BI dashboards for non-technical clinical stakeholders. I'm especially interested in healthcare analytics, AI-driven tools, and systems that improve decision-making in medicine and industry. Trilingual in English, Spanish, and French.</p>
         </div>
         <div class="about-details reveal">
             <div class="detail-card">
@@ -141,7 +141,7 @@
                 <div class="value">University of Arkansas</div>
             </div>
             <div class="detail-card">
-                <div class="label">Graduation</div>
+                <div class="label">Graduated</div>
                 <div class="value">May 2026</div>
             </div>
             <div class="detail-card">
@@ -159,7 +159,29 @@
 <section id="projects">
     <p class="sec-label reveal">Projects</p>
     <h2 class="sec-title reveal">Selected Work</h2>
-    <p class="sec-sub reveal">Data-driven projects exploring machine learning, analytics, and real-world problem solving.</p>
+    <p class="sec-sub reveal">Data-driven projects exploring clinical analytics, machine learning, and real-world problem solving.</p>
+
+    <div class="project-card reveal">
+        <div class="project-header">
+            <h3>Healthcare Readmission Analytics</h3>
+            <span class="project-status status-complete">Completed</span>
+        </div>
+        <p>Built an end-to-end clinical data pipeline on 25,000 patient encounters. Designed a normalized SQL star-schema relational database (SQLite) with a fact table, conformed dimensions, and a bridge table resolving many-to-many diagnosis relationships. Performed exploratory data analysis and ETL with enforced primary and foreign key integrity throughout. Clinical outcomes analysis identified prior inpatient utilization as the strongest readmission driver (rates 40% to 81%). Delivered findings through an interactive Power BI dashboard with KPI cards designed for a non-technical clinical audience.</p>
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">ETL</span>
+            <span class="tag">Data Pipeline</span>
+            <span class="tag">Jupyter</span>
+        </div>
+        <div class="project-buttons">
+            <a href="https://github.com/lbonadonasiles-lgtm/Healthcare-readmission-analytics" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Healthcare-readmission-analytics#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
+        </div>
+    </div>
 
     <div class="project-card reveal">
         <div class="project-header">
@@ -177,8 +199,30 @@
             <span class="tag">Jupyter</span>
         </div>
         <div class="project-buttons">
-            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting" target="_blank" rel="noopener" class="btn btn-outline">View Code ↗</a>
-            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More ↗</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
+        </div>
+    </div>
+
+    <div class="project-card reveal">
+        <div class="project-header">
+            <h3>EEG Seizure Detection</h3>
+            <span class="project-status status-complete">Completed</span>
+        </div>
+        <p>Built a machine learning pipeline to detect epileptic seizures from EEG brain recordings (11,500 samples, 178 data points each). Engineered 12 statistical features from raw signals, then trained Logistic Regression, Random Forest, and XGBoost for both binary and multiclass classification. Random Forest achieved 98.1% accuracy with 95% seizure recall, missing only 23 out of 460 seizures — critical for patient safety in medical monitoring systems.</p>
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Seaborn</span>
+            <span class="tag">Jupyter</span>
+        </div>
+        <div class="project-buttons">
+            <a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
         </div>
     </div>
 
@@ -198,35 +242,13 @@
             <span class="tag">Jupyter</span>
         </div>
         <div class="project-buttons">
-            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction" target="_blank" rel="noopener" class="btn btn-outline">View Code ↗</a>
-            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More ↗</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
         </div>
-    </div>
-
-   <div class="project-card reveal">
-        <div class="project-header">
-            <h3>EEG Seizure Detection</h3>
-            <span class="project-status status-complete">Completed</span>
-        </div>
-        <p>Built a machine learning pipeline to detect epileptic seizures from EEG brain recordings (11,500 samples, 178 data points each). Engineered 12 statistical features from raw signals, then trained Logistic Regression, Random Forest, and XGBoost for both binary and multiclass classification. Random Forest achieved 98.1% accuracy with 95% seizure recall, missing only 23 out of 460 seizures — critical for patient safety in medical monitoring systems.</p>
-        <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
-            <span class="tag">Jupyter</span>
-        </div>
-        <div class="project-buttons">
-            <a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection" target="_blank" rel="noopener" class="btn btn-outline">View Code ↗</a>
-<a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More ↗</a>
-        </div>
-    </div>
     </div>
 </section>
-    <section id="skills">
+
+<section id="skills">
     <p class="sec-label reveal">Skills &amp; Tools</p>
     <h2 class="sec-title reveal">Technical Toolkit</h2>
     <p class="sec-sub reveal">Languages, frameworks, and tools I use to build, analyze, and solve problems.</p>
@@ -236,8 +258,9 @@
             <h3>Programming</h3>
             <ul class="skill-list">
                 <li>Python</li>
+                <li>SQL</li>
+                <li>R</li>
                 <li>C++</li>
-                <li>VHDL</li>
                 <li>MATLAB</li>
             </ul>
         </div>
@@ -253,21 +276,24 @@
             </ul>
         </div>
         <div class="skill-group reveal">
-            <h3>Tools &amp; Platforms</h3>
+            <h3>Data &amp; Analytics</h3>
             <ul class="skill-list">
-                <li>Jupyter Notebook</li>
-                <li>Anaconda</li>
-                <li>SolidWorks</li>
-                <li>Excel</li>
+                <li>Power BI</li>
+                <li>SQL / SQLite</li>
+                <li>ETL Pipelines</li>
+                <li>Data Modeling</li>
+                <li>KPI Dashboards</li>
+                <li>Excel (Advanced)</li>
             </ul>
         </div>
         <div class="skill-group reveal">
-            <h3>Engineering</h3>
+            <h3>Tools &amp; Platforms</h3>
             <ul class="skill-list">
-                <li>Technical Modeling</li>
-                <li>Data Collection</li>
-                <li>Numerical Models</li>
-                <li>Statistical Analysis</li>
+                <li>Jupyter Notebook</li>
+                <li>Git / GitHub</li>
+                <li>Anaconda</li>
+                <li>SolidWorks</li>
+                <li>AWS (Basics)</li>
             </ul>
         </div>
         <div class="skill-group reveal">
@@ -293,7 +319,7 @@
     <p class="sec-label reveal">Resume</p>
     <h2 class="sec-title reveal">Download My CV</h2>
     <p class="sec-sub reveal">For a full overview of my experience, education, and certifications.</p>
-    <a href="LBS_CV.pdf" download class="btn btn-gold reveal">Download Resume ↓</a>
+    <a href="LBS_CV.pdf" download class="btn btn-gold reveal">Download Resume &#8595;</a>
 </section>
 
 <footer>
@@ -313,4 +339,3 @@
 
 </body>
 </html>
-    
