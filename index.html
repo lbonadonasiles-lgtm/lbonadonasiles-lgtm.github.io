@@ -11,6 +11,8 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; background: var(--forest-deep); color: var(--text-light); overflow-x: hidden; }
         body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 15% 30%, rgba(42,74,42,0.35) 0%, transparent 55%), radial-gradient(ellipse at 85% 70%, rgba(58,106,58,0.18) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+
+        /* Nav */
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(22,32,22,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(90,173,90,0.08); }
         .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--gold); }
         .nav-links { display: flex; gap: 2.2rem; list-style: none; }
@@ -20,11 +22,12 @@
         .nav-links a:hover::after { width: 100%; }
         .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
         .nav-hamburger span { width: 24px; height: 2px; background: var(--cream); }
+
+        /* Hero */
         .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 8%; z-index: 1; }
         .hero-content { max-width: 680px; }
         .hero-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; padding: 0.5rem 1.1rem; border: 1px solid rgba(201,168,76,0.25); opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
         .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 600; line-height: 1.1; color: var(--cream); margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards; }
-        .hero h1 .accent { color: var(--forest-glow); }
         .hero-description { font-size: 1.02rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 540px; opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
         .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.65s forwards; }
         .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s ease; }
@@ -41,29 +44,48 @@
         .ring-1 .dot { top: -2px; left: 50%; }
         .ring-2 .dot { top: 50%; right: -2px; }
         .ring-3 .dot { bottom: -2px; left: 50%; }
+
+        /* Sections */
         section { position: relative; z-index: 1; padding: 6.5rem 8%; }
         .sec-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
         .sec-title { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; color: var(--cream); margin-bottom: 1rem; }
         .sec-sub { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; max-width: 540px; margin-bottom: 3rem; }
+
+        /* About */
         #about { background: linear-gradient(180deg, transparent 0%, rgba(30,48,30,0.25) 50%, transparent 100%); }
-        .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; }
+        .about-grid { display: grid; grid-template-columns: 220px 1.1fr 0.9fr; gap: 3.5rem; align-items: start; }
+        .about-photo-col { display: flex; flex-direction: column; align-items: center; padding-top: 0.5rem; }
+        .profile-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--gold); display: block; box-shadow: 0 0 30px rgba(201,168,76,0.15); }
         .about-text p { font-size: 0.98rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 1.4rem; }
         .about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
         .detail-card { padding: 1.6rem; background: rgba(42,74,42,0.18); border: 1px solid rgba(90,173,90,0.08); transition: all 0.3s; }
         .detail-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-3px); }
         .detail-card .label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.45rem; }
         .detail-card .value { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--cream); }
+
+        /* Project cards — standard */
         .project-card { padding: 2.4rem; background: rgba(30,48,30,0.35); border: 1px solid rgba(90,173,90,0.08); margin-bottom: 1.5rem; transition: all 0.35s; }
         .project-card:hover { border-color: rgba(201,168,76,0.25); background: rgba(30,48,30,0.5); transform: translateX(4px); }
         .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem; }
         .project-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; color: var(--cream); }
         .project-status { font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 2px; }
         .status-complete { background: rgba(90,173,90,0.15); color: var(--forest-glow); border: 1px solid rgba(90,173,90,0.25); }
-        .status-soon { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+        .status-capstone { background: rgba(201,168,76,0.12); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.3); }
         .project-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.2rem; }
         .tags { display: flex; gap: 0.45rem; flex-wrap: wrap; }
         .tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 0.3rem 0.75rem; background: rgba(90,173,90,0.08); border: 1px solid rgba(90,173,90,0.12); color: var(--forest-glow); }
-        .project-buttons { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+        .project-buttons { display: flex; gap: 0.75rem; margin-top: 1.2rem; flex-wrap: wrap; }
+
+        /* GBG visual card */
+        .project-card-visual { padding: 0; overflow: hidden; }
+        .project-card-visual:hover { transform: translateX(4px); }
+        .project-cover { width: 100%; height: 260px; overflow: hidden; }
+        .project-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; transition: transform 0.5s ease; filter: brightness(0.82); }
+        .project-card-visual:hover .project-cover img { transform: scale(1.03); filter: brightness(0.92); }
+        .project-card-content { padding: 2rem 2.4rem 2.4rem; }
+        .budget-badge { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.28rem 0.85rem; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); margin-bottom: 1rem; }
+
+        /* Skills */
         #skills { background: linear-gradient(180deg, transparent 0%, rgba(30,48,30,0.25) 50%, transparent 100%); }
         .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .skill-group { padding: 2rem; background: rgba(42,74,42,0.15); border: 1px solid rgba(90,173,90,0.08); transition: all 0.3s; }
@@ -72,6 +94,8 @@
         .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
         .skill-list li { font-size: 0.88rem; color: var(--text-muted); padding-left: 1rem; position: relative; }
         .skill-list li::before { content: '›'; position: absolute; left: 0; color: var(--forest-glow); font-weight: 600; }
+
+        /* Resume + Footer */
         .resume-section { text-align: center; padding: 5rem 8%; border-top: 1px solid rgba(90,173,90,0.08); }
         .resume-section .sec-sub { margin: 0 auto 2rem; }
         footer { position: relative; z-index: 1; text-align: center; padding: 3rem 8%; border-top: 1px solid rgba(90,173,90,0.08); }
@@ -79,263 +103,295 @@
         .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 1px; transition: color 0.3s; }
         .footer-links a:hover { color: var(--gold); }
         .footer-copy { font-size: 0.75rem; color: rgba(168,160,152,0.5); letter-spacing: 1px; }
+
+        /* Animations */
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
-        @media (max-width: 900px) { .hero h1 { font-size: 2.8rem; } .hero-rings { display: none; } .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } .skills-grid { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } .nav-hamburger { display: flex; } .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(22,32,22,0.96); padding: 1.5rem 5%; gap: 1.2rem; border-bottom: 1px solid rgba(90,173,90,0.1); } }
-        @media (max-width: 600px) { section { padding: 4.5rem 6%; } .hero { padding: 0 6%; } .hero h1 { font-size: 2.2rem; } .sec-title { font-size: 2rem; } .skills-grid { grid-template-columns: 1fr; } .about-details { grid-template-columns: 1fr; } .project-header { flex-direction: column; } }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero-rings { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-photo-col { flex-direction: row; gap: 1.5rem; align-items: center; justify-content: flex-start; }
+            .profile-photo { width: 130px; height: 130px; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(22,32,22,0.96); padding: 1.5rem 5%; gap: 1.2rem; border-bottom: 1px solid rgba(90,173,90,0.1); }
+        }
+        @media (max-width: 600px) {
+            section { padding: 4.5rem 6%; }
+            .hero { padding: 0 6%; }
+            .hero h1 { font-size: 2.2rem; }
+            .sec-title { font-size: 2rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .about-details { grid-template-columns: 1fr; }
+            .project-header { flex-direction: column; }
+            .project-cover { height: 200px; }
+        }
     </style>
 </head>
 <body>
     <nav>
-    <div class="nav-logo">LBS</div>
-    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-        <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#resume">Resume</a></li>
-    </ul>
-</nav>
+        <div class="nav-logo">LBS</div>
+        <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
 
-<section class="hero">
-    <div class="hero-content">
-        <div class="hero-tag">Biomedical Engineering · Data Analytics · ML</div>
-        <h1>Luciano<br>Bonadona Siles</h1>
-        <p class="hero-description">Biomedical Engineering graduate (University of Arkansas, May 2026) with a Minor in Computer Science, focused on healthcare data analytics, machine learning, and building data pipelines that drive real-world decisions.</p>
-        <div class="hero-buttons">
-            <a href="#projects" class="btn btn-gold">View Projects</a>
-            <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn &#8599;</a>
-        </div>
-    </div>
-    <div class="hero-rings">
-        <div class="ring ring-1"><div class="dot"></div></div>
-        <div class="ring ring-2"><div class="dot"></div></div>
-        <div class="ring ring-3"><div class="dot"></div></div>
-    </div>
-</section>
-
-<section id="about">
-    <div class="about-grid">
-        <div class="about-text reveal">
-            <p class="sec-label">About Me</p>
-            <h2 class="sec-title">Engineering Meets<br>Data Science</h2>
-            <p>I'm a Biomedical Engineering graduate from the University of Arkansas with a Minor in Computer Science, focused on healthcare data analytics, machine learning, and building end-to-end data pipelines that turn raw data into actionable insight.</p>
-            <p>My projects sit at the intersection of clinical data, engineering, and analytics. I've built SQL databases from real patient datasets, trained ML models on physiological signals, and developed Power BI dashboards for non-technical clinical stakeholders. I'm especially interested in healthcare analytics, AI-driven tools, and systems that improve decision-making in medicine and industry. Trilingual in English, Spanish, and French.</p>
-        </div>
-        <div class="about-details reveal">
-            <div class="detail-card">
-                <div class="label">Degree</div>
-                <div class="value">B.S. Biomedical Engineering</div>
-            </div>
-            <div class="detail-card">
-                <div class="label">Minor</div>
-                <div class="value">Computer Science</div>
-            </div>
-            <div class="detail-card">
-                <div class="label">University</div>
-                <div class="value">University of Arkansas</div>
-            </div>
-            <div class="detail-card">
-                <div class="label">Graduated</div>
-                <div class="value">May 2026</div>
-            </div>
-            <div class="detail-card">
-                <div class="label">GPA</div>
-                <div class="value">3.4</div>
-            </div>
-            <div class="detail-card">
-                <div class="label">Languages</div>
-                <div class="value">English · Spanish · French</div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">Biomedical Engineering · Data Analytics · ML</div>
+            <h1>Luciano<br>Bonadona Siles</h1>
+            <p class="hero-description">Biomedical Engineering graduate (University of Arkansas, May 2026) with a Minor in Computer Science, focused on healthcare data analytics, machine learning, and building data pipelines that drive real-world decisions.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-gold">View Projects</a>
+                <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn &#8599;</a>
             </div>
         </div>
-    </div>
-</section>
+        <div class="hero-rings">
+            <div class="ring ring-1"><div class="dot"></div></div>
+            <div class="ring ring-2"><div class="dot"></div></div>
+            <div class="ring ring-3"><div class="dot"></div></div>
+        </div>
+    </section>
 
-<section id="projects">
-    <p class="sec-label reveal">Projects</p>
-    <h2 class="sec-title reveal">Selected Work</h2>
-    <p class="sec-sub reveal">Data-driven projects exploring clinical analytics, machine learning, and real-world problem solving.</p>
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-photo-col reveal">
+                <img src="LBS%20profile%20picture.JPG" alt="Luciano Bonadona Siles" class="profile-photo">
+            </div>
+            <div class="about-text reveal">
+                <p class="sec-label">About Me</p>
+                <h2 class="sec-title">Engineering Meets<br>Data Science</h2>
+                <p>I'm a Biomedical Engineering graduate from the University of Arkansas with a Minor in Computer Science, focused on healthcare data analytics, machine learning, and building end-to-end data pipelines that turn raw data into actionable insight.</p>
+                <p>My projects sit at the intersection of clinical data, engineering, and analytics. I've built SQL databases from real patient datasets, trained ML models on physiological signals, and developed Power BI dashboards for non-technical clinical stakeholders. I'm especially interested in healthcare analytics, AI-driven tools, and systems that improve decision-making in medicine and industry. Trilingual in English, Spanish, and French.</p>
+            </div>
+            <div class="about-details reveal">
+                <div class="detail-card">
+                    <div class="label">Degree</div>
+                    <div class="value">B.S. Biomedical Engineering</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Minor</div>
+                    <div class="value">Computer Science</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">University</div>
+                    <div class="value">University of Arkansas</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Graduated</div>
+                    <div class="value">May 2026</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">GPA</div>
+                    <div class="value">3.4</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Languages</div>
+                    <div class="value">English · Spanish · French</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="project-card reveal">
-        <div class="project-header">
-            <h3>Healthcare Readmission Analytics</h3>
-            <span class="project-status status-complete">Completed</span>
-        </div>
-        <p>Built an end-to-end clinical data pipeline on 25,000 patient encounters. Designed a normalized SQL star-schema relational database (SQLite) with a fact table, conformed dimensions, and a bridge table resolving many-to-many diagnosis relationships. Performed exploratory data analysis and ETL with enforced primary and foreign key integrity throughout. Clinical outcomes analysis identified prior inpatient utilization as the strongest readmission driver (rates 40% to 81%). Delivered findings through an interactive Power BI dashboard with KPI cards designed for a non-technical clinical audience.</p>
-        <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">SQL</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">ETL</span>
-            <span class="tag">Data Pipeline</span>
-            <span class="tag">Jupyter</span>
-        </div>
-        <div class="project-buttons">
-            <a href="https://github.com/lbonadonasiles-lgtm/Healthcare-readmission-analytics" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
-            <a href="https://github.com/lbonadonasiles-lgtm/Healthcare-readmission-analytics#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
-        </div>
-    </div>
+    <section id="projects">
+        <p class="sec-label reveal">Projects</p>
+        <h2 class="sec-title reveal">Selected Work</h2>
+        <p class="sec-sub reveal">Data-driven projects exploring clinical analytics, machine learning, and real-world problem solving.</p>
 
-    <div class="project-card reveal">
-        <div class="project-header">
-            <h3>Energy Demand Forecasting</h3>
-            <span class="project-status status-complete">Completed</span>
+        <!-- GBG — Featured -->
+        <div class="project-card project-card-visual reveal">
+            <div class="project-cover">
+                <img src="GBG/Team%20picture%20GBG.JPG" alt="Go Baby Go! team at the University of Arkansas BME Design Expo with Ruby">
+            </div>
+            <div class="project-card-content">
+                <div class="project-header">
+                    <h3>Go Baby Go! — Adaptive Mobility Device</h3>
+                    <span class="project-status status-capstone">Senior Capstone</span>
+                </div>
+                <div class="budget-badge">Under $600 Build Cost</div>
+                <p>Led a team of 5 Biomedical Engineering students to adapt a ride-on toy vehicle for Ruby, a child diagnosed with Angelman syndrome, which caused limited lower-limb motor control and difficulty maintaining upright posture. Collaborated with clinicians at UAMS to translate clinical requirements into engineering specifications — all under a $600 budget, designed so any family can replicate the build.</p>
+                <div class="tags">
+                    <span class="tag">Hardware</span>
+                    <span class="tag">Embedded Systems</span>
+                    <span class="tag">3D Printing</span>
+                    <span class="tag">Clinical Collaboration</span>
+                    <span class="tag">Biomedical Engineering</span>
+                    <span class="tag">Adaptive Design</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="gbg.html" class="btn btn-gold">Read More &#8599;</a>
+                </div>
+            </div>
         </div>
-        <p>Built a machine learning pipeline to predict household electricity consumption using the UCI Electric Power Consumption dataset (~2M rows). Explored seasonal and daily usage patterns through visualization, engineered time-based and lag features, then trained and compared three models — Linear Regression, Random Forest, and XGBoost. XGBoost achieved the best performance with an R² of 0.61 after feature engineering, capturing seasonal trends and daily usage cycles.</p>
-        <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
-            <span class="tag">Jupyter</span>
-        </div>
-        <div class="project-buttons">
-            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
-            <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
-        </div>
-    </div>
 
-    <div class="project-card reveal">
-        <div class="project-header">
-            <h3>EEG Seizure Detection</h3>
-            <span class="project-status status-complete">Completed</span>
+        <!-- Healthcare Readmission -->
+        <div class="project-card reveal">
+            <div class="project-header">
+                <h3>Healthcare Readmission Analytics</h3>
+                <span class="project-status status-complete">Completed</span>
+            </div>
+            <p>Built an end-to-end clinical data pipeline on 25,000 patient encounters. Designed a normalized SQL star-schema relational database (SQLite) with a fact table, conformed dimensions, and a bridge table resolving many-to-many diagnosis relationships. Performed exploratory data analysis and ETL with enforced primary and foreign key integrity throughout. Clinical outcomes analysis identified prior inpatient utilization as the strongest readmission driver (rates 40% to 81%). Delivered findings through an interactive Power BI dashboard with KPI cards designed for a non-technical clinical audience.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">ETL</span>
+                <span class="tag">Data Pipeline</span>
+                <span class="tag">Jupyter</span>
+            </div>
+            <div class="project-buttons">
+                <a href="https://github.com/lbonadonasiles-lgtm/Healthcare-readmission-analytics" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+                <a href="https://github.com/lbonadonasiles-lgtm/Healthcare-readmission-analytics#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
+            </div>
         </div>
-        <p>Built a machine learning pipeline to detect epileptic seizures from EEG brain recordings (11,500 samples, 178 data points each). Engineered 12 statistical features from raw signals, then trained Logistic Regression, Random Forest, and XGBoost for both binary and multiclass classification. Random Forest achieved 98.1% accuracy with 95% seizure recall, missing only 23 out of 460 seizures — critical for patient safety in medical monitoring systems.</p>
-        <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
-            <span class="tag">Jupyter</span>
-        </div>
-        <div class="project-buttons">
-            <a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
-            <a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
-        </div>
-    </div>
 
-    <div class="project-card reveal">
-        <div class="project-header">
-            <h3>Heart Disease Risk Prediction</h3>
-            <span class="project-status status-complete">Completed</span>
+        <!-- Energy Demand Forecasting -->
+        <div class="project-card reveal">
+            <div class="project-header">
+                <h3>Energy Demand Forecasting</h3>
+                <span class="project-status status-complete">Completed</span>
+            </div>
+            <p>Built a machine learning pipeline to predict household electricity consumption using the UCI Electric Power Consumption dataset (~2M rows). Explored seasonal and daily usage patterns through visualization, engineered time-based and lag features, then trained and compared three models — Linear Regression, Random Forest, and XGBoost. XGBoost achieved the best performance with an R² of 0.61 after feature engineering, capturing seasonal trends and daily usage cycles.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">XGBoost</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Seaborn</span>
+                <span class="tag">Jupyter</span>
+            </div>
+            <div class="project-buttons">
+                <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+                <a href="https://github.com/lbonadonasiles-lgtm/Energy-demand-forecasting#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
+            </div>
         </div>
-        <p>Built a classification pipeline to predict heart disease presence using clinical patient data from 918 records. Analyzed relationships between chest pain types, ECG readings, and cardiac risk. Trained Logistic Regression, Random Forest, and XGBoost — Logistic Regression achieved the best accuracy at 89.7% with a disease recall of 92.2%, correctly identifying 94 out of 102 heart disease patients.</p>
-        <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
-            <span class="tag">Jupyter</span>
-        </div>
-        <div class="project-buttons">
-            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
-            <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
-        </div>
-    </div>
-</section>
 
-<section id="skills">
-    <p class="sec-label reveal">Skills &amp; Tools</p>
-    <h2 class="sec-title reveal">Technical Toolkit</h2>
-    <p class="sec-sub reveal">Languages, frameworks, and tools I use to build, analyze, and solve problems.</p>
+        <!-- EEG Seizure Detection -->
+        <div class="project-card reveal">
+            <div class="project-header">
+                <h3>EEG Seizure Detection</h3>
+                <span class="project-status status-complete">Completed</span>
+            </div>
+            <p>Built a machine learning pipeline to detect epileptic seizures from EEG brain recordings (11,500 samples, 178 data points each). Engineered 12 statistical features from raw signals, then trained Logistic Regression, Random Forest, and XGBoost for both binary and multiclass classification. Random Forest achieved 98.1% accuracy with 95% seizure recall, missing only 23 out of 460 seizures — critical for patient safety in medical monitoring systems.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">XGBoost</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Seaborn</span>
+                <span class="tag">Jupyter</span>
+            </div>
+            <div class="project-buttons">
+                <a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+                <a href="https://github.com/lbonadonasiles-lgtm/Seizure-detection#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
+            </div>
+        </div>
 
-    <div class="skills-grid">
-        <div class="skill-group reveal">
-            <h3>Programming</h3>
-            <ul class="skill-list">
-                <li>Python</li>
-                <li>SQL</li>
-                <li>R</li>
-                <li>C++</li>
-                <li>MATLAB</li>
-            </ul>
+        <!-- Heart Disease -->
+        <div class="project-card reveal">
+            <div class="project-header">
+                <h3>Heart Disease Risk Prediction</h3>
+                <span class="project-status status-complete">Completed</span>
+            </div>
+            <p>Built a classification pipeline to predict heart disease presence using clinical patient data from 918 records. Analyzed relationships between chest pain types, ECG readings, and cardiac risk. Trained Logistic Regression, Random Forest, and XGBoost — Logistic Regression achieved the best accuracy at 89.7% with a disease recall of 92.2%, correctly identifying 94 out of 102 heart disease patients.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">XGBoost</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Seaborn</span>
+                <span class="tag">Jupyter</span>
+            </div>
+            <div class="project-buttons">
+                <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction" target="_blank" rel="noopener" class="btn btn-outline">View Code &#8599;</a>
+                <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction#readme" target="_blank" rel="noopener" class="btn btn-outline">Read More &#8599;</a>
+            </div>
         </div>
-        <div class="skill-group reveal">
-            <h3>ML &amp; Data Libraries</h3>
-            <ul class="skill-list">
-                <li>Pandas</li>
-                <li>NumPy</li>
-                <li>Scikit-learn</li>
-                <li>XGBoost</li>
-                <li>Statsmodels</li>
-                <li>Matplotlib &amp; Seaborn</li>
-            </ul>
-        </div>
-        <div class="skill-group reveal">
-            <h3>Data &amp; Analytics</h3>
-            <ul class="skill-list">
-                <li>Power BI</li>
-                <li>SQL / SQLite</li>
-                <li>ETL Pipelines</li>
-                <li>Data Modeling</li>
-                <li>KPI Dashboards</li>
-                <li>Excel (Advanced)</li>
-            </ul>
-        </div>
-        <div class="skill-group reveal">
-            <h3>Tools &amp; Platforms</h3>
-            <ul class="skill-list">
-                <li>Jupyter Notebook</li>
-                <li>Git / GitHub</li>
-                <li>Anaconda</li>
-                <li>SolidWorks</li>
-                <li>AWS (Basics)</li>
-            </ul>
-        </div>
-        <div class="skill-group reveal">
-            <h3>Certifications</h3>
-            <ul class="skill-list">
-                <li>CSWA (SolidWorks)</li>
-                <li>CSWA-S (SolidWorks)</li>
-                <li>First Aid, CPR &amp; AED</li>
-            </ul>
-        </div>
-        <div class="skill-group reveal">
-            <h3>Languages</h3>
-            <ul class="skill-list">
-                <li>English — Fluent</li>
-                <li>Spanish — Fluent</li>
-                <li>French — Fluent</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="resume" class="resume-section">
-    <p class="sec-label reveal">Resume</p>
-    <h2 class="sec-title reveal">Download My CV</h2>
-    <p class="sec-sub reveal">For a full overview of my experience, education, and certifications.</p>
-    <a href="LBS_CV.pdf" download class="btn btn-gold reveal">Download Resume &#8595;</a>
-</section>
+    <section id="skills">
+        <p class="sec-label reveal">Skills &amp; Tools</p>
+        <h2 class="sec-title reveal">Technical Toolkit</h2>
+        <p class="sec-sub reveal">Languages, frameworks, and tools I use to build, analyze, and solve problems.</p>
+        <div class="skills-grid">
+            <div class="skill-group reveal">
+                <h3>Programming</h3>
+                <ul class="skill-list">
+                    <li>Python</li><li>SQL</li><li>R</li><li>C++</li><li>MATLAB</li>
+                </ul>
+            </div>
+            <div class="skill-group reveal">
+                <h3>ML &amp; Data Libraries</h3>
+                <ul class="skill-list">
+                    <li>Pandas</li><li>NumPy</li><li>Scikit-learn</li><li>XGBoost</li><li>Statsmodels</li><li>Matplotlib &amp; Seaborn</li>
+                </ul>
+            </div>
+            <div class="skill-group reveal">
+                <h3>Data &amp; Analytics</h3>
+                <ul class="skill-list">
+                    <li>Power BI</li><li>SQL / SQLite</li><li>ETL Pipelines</li><li>Data Modeling</li><li>KPI Dashboards</li><li>Excel (Advanced)</li>
+                </ul>
+            </div>
+            <div class="skill-group reveal">
+                <h3>Tools &amp; Platforms</h3>
+                <ul class="skill-list">
+                    <li>Jupyter Notebook</li><li>Git / GitHub</li><li>Anaconda</li><li>SolidWorks</li><li>AWS (Basics)</li>
+                </ul>
+            </div>
+            <div class="skill-group reveal">
+                <h3>Certifications</h3>
+                <ul class="skill-list">
+                    <li>CSWA (SolidWorks)</li><li>CSWA-S (SolidWorks)</li><li>First Aid, CPR &amp; AED</li>
+                </ul>
+            </div>
+            <div class="skill-group reveal">
+                <h3>Languages</h3>
+                <ul class="skill-list">
+                    <li>English — Fluent</li><li>Spanish — Fluent</li><li>French — Fluent</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<footer>
-    <div class="footer-links">
-        <a href="mailto:l.bonadonasiles@gmail.com">l.bonadonasiles@gmail.com</a>
-        <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 Luciano Bonadona Siles</p>
-</footer>
+    <section id="resume" class="resume-section">
+        <p class="sec-label reveal">Resume</p>
+        <h2 class="sec-title reveal">Download My CV</h2>
+        <p class="sec-sub reveal">For a full overview of my experience, education, and certifications.</p>
+        <a href="LBS_CV.pdf" download class="btn btn-gold reveal">Download Resume &#8595;</a>
+    </section>
 
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+    <footer>
+        <div class="footer-links">
+            <a href="mailto:l.bonadonasiles@gmail.com">l.bonadonasiles@gmail.com</a>
+            <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Luciano Bonadona Siles</p>
+    </footer>
 
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

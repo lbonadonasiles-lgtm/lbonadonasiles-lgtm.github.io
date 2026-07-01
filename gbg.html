@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Baby Go! — Luciano Bonadona Siles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --forest-deep: #162016; --forest-dark: #1e301e; --forest-mid: #2a4a2a; --forest-accent: #3a6a3a; --forest-light: #4a8a4a; --forest-glow: #5aad5a; --cream: #f4f0e8; --cream-muted: #c8c0b4; --gold: #c9a84c; --gold-light: #dfc06a; --text-light: #e6e2da; --text-muted: #a8a098; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--forest-deep); color: var(--text-light); overflow-x: hidden; }
+        body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 15% 30%, rgba(42,74,42,0.25) 0%, transparent 55%), radial-gradient(ellipse at 85% 70%, rgba(58,106,58,0.12) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+
+        /* Nav */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(22,32,22,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(90,173,90,0.08); }
+        .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+        .nav-back { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-muted); font-size: 0.78rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
+        .nav-back:hover { color: var(--cream); }
+        .nav-back::before { content: '←'; font-size: 1rem; letter-spacing: 0; }
+
+        /* Hero */
+        .gbg-hero { position: relative; height: 72vh; min-height: 480px; display: flex; align-items: flex-end; overflow: hidden; z-index: 1; }
+        .hero-bg { position: absolute; inset: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(0.45) saturate(0.85); }
+        .hero-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(22,32,22,0.98) 0%, rgba(22,32,22,0.4) 55%, rgba(22,32,22,0.15) 100%); }
+        .hero-content { position: relative; z-index: 2; padding: 0 8% 5rem; max-width: 800px; }
+        .hero-eyebrow { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; padding: 0.4rem 1rem; border: 1px solid rgba(201,168,76,0.3); }
+        .hero-content h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 600; line-height: 1.05; color: var(--cream); margin-bottom: 1rem; }
+        .hero-content h1 .accent { color: var(--forest-glow); }
+        .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); line-height: 1.75; max-width: 520px; }
+        .hero-stats { display: flex; gap: 2.5rem; margin-top: 2rem; flex-wrap: wrap; }
+        .hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+        .hero-stat .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--gold); }
+        .hero-stat .stat-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+
+        /* Sections */
+        section { position: relative; z-index: 1; padding: 5.5rem 8%; }
+        .sec-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+        .sec-title { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; color: var(--cream); margin-bottom: 1.2rem; }
+        .sec-divider { width: 40px; height: 2px; background: var(--gold); margin-bottom: 2rem; opacity: 0.6; }
+
+        /* Overview */
+        #overview { background: rgba(30,48,30,0.2); border-top: 1px solid rgba(90,173,90,0.08); border-bottom: 1px solid rgba(90,173,90,0.08); }
+        .overview-grid { display: grid; grid-template-columns: 1fr 320px; gap: 5rem; align-items: start; }
+        .overview-text p { font-size: 0.98rem; line-height: 1.9; color: var(--text-muted); margin-bottom: 1.4rem; }
+        .budget-callout { margin-top: 2rem; padding: 1.4rem 1.8rem; background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.25); border-left: 3px solid var(--gold); }
+        .budget-callout .budget-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--gold); line-height: 1.1; margin-bottom: 0.3rem; }
+        .budget-callout .budget-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+        .overview-meta { display: flex; flex-direction: column; gap: 1rem; }
+        .meta-card { padding: 1.4rem 1.6rem; background: rgba(42,74,42,0.15); border: 1px solid rgba(90,173,90,0.08); }
+        .meta-card .meta-label { font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+        .meta-card .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--cream); }
+
+        /* Problem section */
+        #problem { }
+        .problem-text { max-width: 760px; }
+        .problem-text p { font-size: 1rem; line-height: 1.95; color: var(--text-muted); margin-bottom: 1.4rem; }
+        .problem-text p:last-child { margin-bottom: 0; }
+
+        /* Build section */
+        #build { background: rgba(30,48,30,0.2); border-top: 1px solid rgba(90,173,90,0.08); border-bottom: 1px solid rgba(90,173,90,0.08); }
+        .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 0.5rem; }
+        .mod-card { padding: 2rem; background: rgba(22,32,22,0.6); border: 1px solid rgba(90,173,90,0.1); transition: all 0.3s; }
+        .mod-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-3px); background: rgba(30,48,30,0.7); }
+        .mod-number { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 700; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 0.8rem; }
+        .mod-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--cream); margin-bottom: 0.6rem; }
+        .mod-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; }
+
+        /* Presentation */
+        #gallery { }
+        .pdf-embed { width: 100%; height: 75vh; min-height: 520px; border: 1px solid rgba(90,173,90,0.1); display: block; background: #0d1a0d; margin-top: 0.5rem; }
+        .pdf-fallback { margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted); }
+        .pdf-fallback a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); transition: border-color 0.3s; }
+        .pdf-fallback a:hover { border-color: var(--gold); }
+
+        /* Lightbox */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; padding: 2rem; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border: 1px solid rgba(201,168,76,0.15); }
+        .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; color: var(--cream); font-size: 2rem; cursor: pointer; background: none; border: none; line-height: 1; }
+
+        /* Video */
+        #video-section { background: rgba(30,48,30,0.2); border-top: 1px solid rgba(90,173,90,0.08); }
+        .video-wrapper { margin-top: 1rem; position: relative; }
+        .video-wrapper video { width: 100%; max-height: 520px; background: #0a120a; border: 1px solid rgba(90,173,90,0.1); display: block; }
+
+        /* Footer */
+        .page-footer { position: relative; z-index: 1; border-top: 1px solid rgba(90,173,90,0.08); padding: 3.5rem 8%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+        .footer-left { display: flex; flex-direction: column; gap: 0.5rem; }
+        .footer-left a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 1px; transition: color 0.3s; }
+        .footer-left a:hover { color: var(--gold); }
+        .footer-copy { font-size: 0.75rem; color: rgba(168,160,152,0.5); letter-spacing: 1px; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s ease; }
+        .btn-outline { background: transparent; color: var(--cream); border: 1px solid rgba(232,228,220,0.25); }
+        .btn-outline:hover { border-color: var(--cream); background: rgba(232,228,220,0.04); transform: translateY(-2px); }
+
+        /* Animations */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-content h1 { font-size: 3rem; }
+            .overview-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .overview-meta { flex-direction: row; flex-wrap: wrap; }
+            .meta-card { flex: 1 1 140px; }
+            .build-grid { grid-template-columns: 1fr; }
+            .photo-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            section { padding: 4rem 6%; }
+            .hero-content { padding: 0 6% 4rem; }
+            .hero-content h1 { font-size: 2.4rem; }
+            .sec-title { font-size: 2rem; }
+            .photo-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1.5rem; }
+            .page-footer { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">LBS</a>
+        <a href="index.html#projects" class="nav-back">Portfolio</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="gbg-hero">
+        <div class="hero-bg">
+            <img src="GBG/Team%20picture%20GBG.JPG" alt="Go Baby Go! team with Ruby at the BME Design Expo">
+        </div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">University of Arkansas &nbsp;·&nbsp; Biomedical Engineering &nbsp;·&nbsp; Spring 2026</span>
+            <h1>Go Baby <span class="accent">Go!</span></h1>
+            <p class="hero-subtitle">Giving Ruby the independence to move on her own terms — using engineering, clinical collaboration, and a sub-$600 build any family can replicate.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">Engineers</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value">&lt; $600</span>
+                    <span class="stat-label">Total Budget</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Modifications</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value">UAMS</span>
+                    <span class="stat-label">Clinical Partner</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+        <div class="overview-grid">
+            <div class="overview-text reveal">
+                <p class="sec-label">Project Overview</p>
+                <h2 class="sec-title">Engineering for Ruby</h2>
+                <div class="sec-divider"></div>
+                <p>Led a team of 5 Biomedical Engineering students to adapt a commercial ride-on toy vehicle for Ruby, a child diagnosed with Angelman syndrome — a neurogenetic condition that caused limited lower-limb motor control and difficulty maintaining an upright posture. Our goal was to restore the experience of independent, self-directed movement that most children take for granted.</p>
+                <p>Working directly with clinicians at the University of Arkansas for Medical Sciences (UAMS), we translated medical mobility requirements into actionable engineering specifications. Every modification was designed with Ruby's specific needs in mind, and every material choice was made with one goal: keep the total build cost under $600, so that any family facing a similar situation could replicate it at home.</p>
+                <div class="budget-callout">
+                    <span class="budget-number">Under $600</span>
+                    <span class="budget-desc">Total build cost — every part sourced and documented so any family can replicate this vehicle without relying on insurance coverage or specialty clinics.</span>
+                </div>
+            </div>
+            <div class="overview-meta reveal">
+                <div class="meta-card">
+                    <div class="meta-label">Program</div>
+                    <div class="meta-value">Go Baby Go! — U of A</div>
+                </div>
+                <div class="meta-card">
+                    <div class="meta-label">Timeline</div>
+                    <div class="meta-value">Fall 2025 – May 2026</div>
+                </div>
+                <div class="meta-card">
+                    <div class="meta-label">Team Size</div>
+                    <div class="meta-value">5 BME Students</div>
+                </div>
+                <div class="meta-card">
+                    <div class="meta-label">Clinical Partner</div>
+                    <div class="meta-value">UAMS</div>
+                </div>
+                <div class="meta-card">
+                    <div class="meta-label">Presented At</div>
+                    <div class="meta-value">BME Senior Design Expo, Spring 2026</div>
+                </div>
+                <div class="meta-card">
+                    <div class="meta-label">Budget</div>
+                    <div class="meta-value">Under $600</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Matters -->
+    <section id="problem">
+        <p class="sec-label reveal">Why It Matters</p>
+        <h2 class="sec-title reveal">A Gap in Coverage</h2>
+        <div class="sec-divider reveal"></div>
+        <div class="problem-text reveal">
+            <p>In the United States, health insurance — including Medicaid — does not cover powered mobility devices for children under the age of three. The rationale is that independent mobility is not yet considered a medical necessity at that developmental stage. For families of children with motor impairments, however, the consequences of this policy are significant: commercial adaptive mobility devices often carry price tags ranging from $15,000 to over $30,000, placing them entirely out of reach for most households.</p>
+            <p>Research consistently shows that early independent mobility has profound effects on a child's cognitive, social, and emotional development. Children who can explore their environment on their own terms develop language skills faster, form stronger social connections, and demonstrate better spatial reasoning. The inability to move independently is not merely a physical limitation — it reshapes how a child experiences and interacts with the world during the most formative years of their development.</p>
+            <p>The Go Baby Go! program was founded on the premise that these outcomes should not be determined by a family's financial circumstances. By modifying off-the-shelf commercial ride-on toy vehicles — available at major retailers for under $100 — into functional adaptive mobility devices, the program delivers that developmental access at a fraction of the cost.</p>
+        </div>
+    </section>
+
+    <!-- The Modifications -->
+    <section id="build">
+        <p class="sec-label reveal">Technical Work</p>
+        <h2 class="sec-title reveal">The Modifications</h2>
+        <div class="sec-divider reveal"></div>
+        <div class="build-grid">
+
+            <div class="mod-card reveal">
+                <div class="mod-number">01</div>
+                <h3>Push-Button Drive Conversion</h3>
+                <p>Redesigned the vehicle's drive system by redirecting power from the factory foot-pedal actuator to a single push-button mounted on the steering wheel. This allowed Ruby to operate the vehicle independently using only her hand, without requiring any lower-limb involvement.</p>
+            </div>
+
+            <div class="mod-card reveal">
+                <div class="mod-number">02</div>
+                <h3>3D-Printed Control Mount</h3>
+                <p>Designed and 3D-printed a custom button housing that mounts directly to the steering wheel and integrates PVC pipe extensions, reducing the reach distance required and making the controls accessible and ergonomic for a young child with limited range of motion.</p>
+            </div>
+
+            <div class="mod-card reveal">
+                <div class="mod-number">03</div>
+                <h3>Parent Emergency Stop</h3>
+                <p>Rewired the vehicle's electrical circuit to incorporate a dedicated emergency stop button mounted at the rear of the vehicle, accessible at all times by the caregiver. The override cuts power immediately, ensuring a reliable safety mechanism during any unexpected situation.</p>
+            </div>
+
+            <div class="mod-card reveal">
+                <div class="mod-number">04</div>
+                <h3>Bluetooth Audio Integration</h3>
+                <p>Integrated a microcontroller with Bluetooth connectivity and an onboard speaker, allowing Ruby to stream her favorite music wirelessly during rides. The addition was designed to enhance sensory engagement and make each session more enjoyable and stimulating.</p>
+            </div>
+
+            <div class="mod-card reveal">
+                <div class="mod-number">05</div>
+                <h3>Custom License Plate</h3>
+                <p>Laser engraved a personalized "RUBY" license plate for the vehicle. A small detail — but one that gives the device a sense of identity and ownership, making it unmistakably hers.</p>
+            </div>
+
+            <div class="mod-card reveal">
+                <div class="mod-number">06</div>
+                <h3>Reproducibility Manual</h3>
+                <p>Authored a detailed step-by-step build guide — including a complete materials list under $600 — for families who were not selected for the Go Baby Go! program. The manual is written for a non-technical audience, enabling parents to replicate every modification independently at home.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Presentation -->
+    <section id="gallery">
+        <p class="sec-label reveal">Build Documentation</p>
+        <h2 class="sec-title reveal">Project Presentation</h2>
+        <div class="sec-divider reveal"></div>
+        <div class="reveal">
+            <embed src="Go%20Baby%20Go%20(1).pdf" type="application/pdf" class="pdf-embed">
+            <p class="pdf-fallback">Presentation not loading? <a href="Go%20Baby%20Go%20(1).pdf" target="_blank" rel="noopener">Open it directly &#8599;</a></p>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video-section">
+        <p class="sec-label reveal">In Action</p>
+        <h2 class="sec-title reveal">Ruby's Test Drive</h2>
+        <div class="sec-divider reveal"></div>
+        <div class="video-wrapper reveal">
+            <video controls preload="metadata">
+                <source src="GBG/Ruby%20test%20drive%20GBG.MOV" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-left">
+            <a href="mailto:l.bonadonasiles@gmail.com">l.bonadonasiles@gmail.com</a>
+            <a href="https://www.linkedin.com/in/luciano-bonadona-2b39b3304/" target="_blank" rel="noopener">LinkedIn</a>
+            <p class="footer-copy">&copy; 2026 Luciano Bonadona Siles</p>
+        </div>
+        <a href="index.html#projects" class="btn btn-outline">&#8592; Back to Portfolio</a>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            event.stopPropagation();
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.getElementById('lightbox-img').src = '';
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+
+</body>
+</html>
