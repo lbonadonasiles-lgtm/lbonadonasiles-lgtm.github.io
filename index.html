@@ -85,6 +85,14 @@
         .project-card-content { padding: 2rem 2.4rem 2.4rem; }
         .budget-badge { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.28rem 0.85rem; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); margin-bottom: 1rem; }
 
+        /* Outside the Lab */
+        #outside { background: linear-gradient(180deg, transparent 0%, rgba(30,48,30,0.2) 50%, transparent 100%); }
+        .outside-grid { display: grid; grid-template-columns: 1fr 340px; gap: 4.5rem; align-items: start; }
+        .outside-text p { font-size: 0.98rem; line-height: 1.9; color: var(--text-muted); }
+        .outside-photos { display: flex; flex-direction: column; gap: 0.6rem; }
+        .outside-photos img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center; filter: brightness(0.82); transition: filter 0.4s; display: block; }
+        .outside-photos img:hover { filter: brightness(1); }
+
         /* Skills */
         #skills { background: linear-gradient(180deg, transparent 0%, rgba(30,48,30,0.25) 50%, transparent 100%); }
         .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -146,6 +154,7 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#outside">Outside the Lab</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#resume">Resume</a></li>
         </ul>
@@ -322,6 +331,20 @@
             </div>
             <div class="project-buttons">
                 <a href="https://github.com/lbonadonasiles-lgtm/Heart-disease-prediction" target="_blank" rel="noopener" class="btn btn-outline">View on GitHub &#8599;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="outside">
+        <div class="outside-grid">
+            <div class="outside-text reveal">
+                <p class="sec-label">Outside the Lab</p>
+                <h2 class="sec-title">More Than a Resume</h2>
+                <p>Some of my most meaningful time was spent far from a screen. For years I worked as a lifeguard and swimming instructor, teaching water safety to kids and working one on one with adults who, for one reason or another, never had the chance to learn. I have also volunteered in schools in Panama and Bolivia, working with children in communities where access to education and basic resources is not always a given. I believe being a decent human being is just as important as being good at your craft, and that the most well-rounded people tend to be the most effective ones in any room they walk into.</p>
+            </div>
+            <div class="outside-photos reveal">
+                <img src="Panama%201.JPG" alt="Volunteering in schools in Panama">
+                <img src="Panama%202.jpg" alt="Volunteering with children in Panama">
             </div>
         </div>
     </section>
